@@ -40,6 +40,29 @@ Builder.load_file("ui.kv")
 # Python code for the game application
 class MainMenu(Screen):
     text_color = ListProperty([1, 0, 1, 1])  # RGBA color for text
+    themes = ListProperty(["Default"]) # <-- Add this line
+
+    def on_enter(self):
+        """
+        Called when the MainMenu screen is entered.
+        Initializes the themes and sets up the checkboxes.
+        """
+        logger.info("Entering Main Menu")
+        self.themes = self.findThemes()  # Get themes when entering the main menu
+
+    def findThemes(self):
+        """
+        Finds all theme files in the Themes directory.
+        Returns a list of theme names without the '.txt' extension.
+        """
+        themes = []
+        themes_directory = os.path.join(os.getcwd(), 'GameApp', 'Themes')
+        for filename in os.listdir(themes_directory):
+            if filename.endswith('.txt'):
+                theme_name = filename[:-4]
+                themes.append(theme_name)
+        logger.info(f"Found themes: {themes}")
+        return themes
 
     def clearText(self, text_input_widget):
         text_input_widget.text = ''\
@@ -82,13 +105,8 @@ class MainMenu(Screen):
         logger.info(f"Starting game with players: {players}")
 
         # Check for themes
-        if(self.ids.theme_celebrities_checkbox.active):
-            theme="celebrities"
-        elif(self.ids.theme_movies_checkbox.active):
-            theme="movies"
-        elif(self.ids.theme_animals_checkbox.active):
-            theme="animals"
-        else:
+        theme = self.ids.theme_spinner.text.strip()  # Get the selected theme from the dropdown
+        if theme == "Select Theme" or theme == "":
             logger.info("No theme selected!")
             self.ids.themes_label.color = [0.8, 0, 0, 0.8]  # Change label color to red to indicate error]
             return
@@ -267,6 +285,19 @@ class GameApp(App):
         sm.add_widget(ImpostorReveal(name='impostor_reveal'))
         return sm
 
+def trim_log_file(file_path, max_lines):
+    try:
+        with open(file_path, 'r') as f:
+            lines = f.readlines()
+        
+        if len(lines) > max_lines:
+            with open(file_path, 'w') as f:
+                f.writelines(lines[-max_lines:])
+    except FileNotFoundError:
+        pass # Log file doesn't exist yet, so do nothing
+    except Exception as e:
+        # Handle other possible errors
+        print(f"Error trimming log file: {e}")
 
 if __name__ == '__main__':
     log_directory = "GameApp\GameLogs"  # You can change this to any desired directory
@@ -293,5 +324,6 @@ if __name__ == '__main__':
     console_handler.setLevel(logging.DEBUG) # Console can be more verbose
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
+    trim_log_file(log_file_path, max_lines=100)  # Trim the log file to the last 100 lines
     logger.info("Starting GameApp")
     GameApp().run()

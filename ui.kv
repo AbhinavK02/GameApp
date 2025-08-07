@@ -65,106 +65,21 @@
             color: [0.8, 0.8, 0.8, 1]
 
         # THEME OPTIONS
-        BoxLayout:
-            orientation: 'vertical'
-            spacing: 15
-            size_hint_y: None
-            height: self.minimum_height
-
-            # REUSABLE THEME BOX
-            BoxLayout:
-                orientation: 'horizontal'
-                spacing: 15
-                size_hint_y: None
-                height: 50
-                canvas.before:
-                    Color:
-                        rgba: [0.2, 0.2, 0.3, 1]
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-
-                Label:
-                    text: "Celebrities"
-                    color: [1, 1, 1, 1]
-                    font_size: 25
-                    size_hint_x: 0.7
-                    halign: 'left'
-                    valign: 'middle'
-                    text_size: self.size
-
-                CheckBox:
-                    id: theme_celebrities_checkbox
-                    group: 'theme'
-                    size_hint: None, None
-                    size: 40, 40
-                    on_active: themes_label.color = [0.8, 0.8, 0.8, 1]
-
-            BoxLayout:
-                orientation: 'horizontal'
-                spacing: 15
-                size_hint_y: None
-                height: 50
-                canvas.before:
-                    Color:
-                        rgba: [0.2, 0.2, 0.3, 1]
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-
-                Label:
-                    text: "Movies"
-                    color: [1, 1, 1, 1]
-                    font_size: 25
-                    size_hint_x: 0.7
-                    halign: 'left'
-                    valign: 'middle'
-                    text_size: self.size
-
-                CheckBox:
-                    id: theme_movies_checkbox
-                    group: 'theme'
-                    size_hint: None, None
-                    size: 40, 40
-                    on_active: themes_label.color = [0.8, 0.8, 0.8, 1]
-
-            BoxLayout:
-                orientation: 'horizontal'
-                spacing: 15
-                size_hint_y: None
-                height: 50
-                canvas.before:
-                    Color:
-                        rgba: [0.2, 0.2, 0.3, 1]
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-
-                Label:
-                    text: "Animals"
-                    color: [1, 1, 1, 1]
-                    font_size: 25
-                    size_hint_x: 0.7
-                    halign: 'left'
-                    valign: 'middle'
-                    text_size: self.size
-
-                CheckBox:
-                    id: theme_animals_checkbox
-                    group: 'theme'
-                    size_hint: None, None
-                    size: 40, 40
-                    on_active: themes_label.color = [0.8, 0.8, 0.8, 1]
-        
         Spinner:
-            id: timer_max
-            text: "2 minutes"
-            values: ["1 minute", "2 minutes","3 minutes","4 minutes","5 minutes"]
+            id: theme_spinner
+            text: "Select Theme"
+            values: root.themes
             font_size: 24
             foreground_color: [1, 1, 1, 1]
             background_color: [0.2, 0.2, 0.3, 1]
 
-
+        Spinner:
+            id: timer_max
+            text: "2 minutes"
+            values: ["1 minute", "2 minutes","3 minutes","4 minutes","5 minutes"]
+            font_size: theme_spinner.font_size
+            foreground_color: theme_spinner.foreground_color
+            background_color: theme_spinner.background_color
 
         Button:
             id: start_game_button
