@@ -1,0 +1,376 @@
+<MainMenu>: 
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 30
+        spacing: 20
+
+        canvas.before:
+            Color:
+                rgba: [0.1, 0.1, 0.2, 1]  # Darker modern background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            font_size: 80
+            text: "Main Menu"
+            size_hint_y: None
+            height: 100
+            color: [1, 1, 1, 1]  # White text
+
+        Label:
+            id: player_name_label
+            text: "Enter Player Names"
+            font_size: 40
+            size_hint_y: None
+            height: 50
+            color: [0.8, 0.8, 0.8, 1]
+
+        TextInput:
+            id: player1_name
+            font_size: 32
+            size_hint_y: None
+            height: 60
+            text: "Player 1"
+            on_double_tap: root.clearText(player1_name)
+            foreground_color: [1, 1, 1, 1]
+            background_color: [0.2, 0.2, 0.3, 1]
+
+        TextInput:
+            id: player2_name
+            font_size: 32
+            size_hint_y: None
+            height: 60
+            text: "Player 2"
+            on_double_tap: root.clearText(player2_name)
+            foreground_color: [1, 1, 1, 1]
+            background_color: [0.2, 0.2, 0.3, 1]
+
+        TextInput:
+            id: player3_name
+            font_size: 32
+            size_hint_y: None
+            height: 60
+            text: "Player 3"
+            on_double_tap: root.clearText(player3_name)
+            foreground_color: [1, 1, 1, 1]
+            background_color: [0.2, 0.2, 0.3, 1]
+
+        Label:
+            id: themes_label
+            text: "Themes"
+            font_size: 40
+            size_hint_y: None
+            height: 50
+            color: [0.8, 0.8, 0.8, 1]
+
+        # THEME OPTIONS
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 15
+            size_hint_y: None
+            height: self.minimum_height
+
+            # REUSABLE THEME BOX
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 15
+                size_hint_y: None
+                height: 50
+                canvas.before:
+                    Color:
+                        rgba: [0.2, 0.2, 0.3, 1]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+                Label:
+                    text: "Celebrities"
+                    color: [1, 1, 1, 1]
+                    font_size: 25
+                    size_hint_x: 0.7
+                    halign: 'left'
+                    valign: 'middle'
+                    text_size: self.size
+
+                CheckBox:
+                    id: theme_celebrities_checkbox
+                    group: 'theme'
+                    size_hint: None, None
+                    size: 40, 40
+                    on_active: themes_label.color = [0.8, 0.8, 0.8, 1]
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 15
+                size_hint_y: None
+                height: 50
+                canvas.before:
+                    Color:
+                        rgba: [0.2, 0.2, 0.3, 1]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+                Label:
+                    text: "Movies"
+                    color: [1, 1, 1, 1]
+                    font_size: 25
+                    size_hint_x: 0.7
+                    halign: 'left'
+                    valign: 'middle'
+                    text_size: self.size
+
+                CheckBox:
+                    id: theme_movies_checkbox
+                    group: 'theme'
+                    size_hint: None, None
+                    size: 40, 40
+                    on_active: themes_label.color = [0.8, 0.8, 0.8, 1]
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 15
+                size_hint_y: None
+                height: 50
+                canvas.before:
+                    Color:
+                        rgba: [0.2, 0.2, 0.3, 1]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+                Label:
+                    text: "Animals"
+                    color: [1, 1, 1, 1]
+                    font_size: 25
+                    size_hint_x: 0.7
+                    halign: 'left'
+                    valign: 'middle'
+                    text_size: self.size
+
+                CheckBox:
+                    id: theme_animals_checkbox
+                    group: 'theme'
+                    size_hint: None, None
+                    size: 40, 40
+                    on_active: themes_label.color = [0.8, 0.8, 0.8, 1]
+        
+        Spinner:
+            id: timer_max
+            text: "2 minutes"
+            values: ["1 minute", "2 minutes","3 minutes","4 minutes","5 minutes"]
+            font_size: 24
+            foreground_color: [1, 1, 1, 1]
+            background_color: [0.2, 0.2, 0.3, 1]
+
+
+
+        Button:
+            id: start_game_button
+            text: "Start Game"
+            font_size: 30
+            size_hint_y: None
+            height: 60
+            background_color: [0.1, 0.6, 0.8, 1]
+            color: [1, 1, 1, 1]
+            on_release: root.start_game_action()
+
+<GamePage>:
+    BoxLayout:
+        id: container
+        orientation: 'vertical'
+        padding: 30
+        spacing: 25
+        canvas.before:
+            Color:
+                rgba: [0.1, 0.1, 0.2, 1]
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Player Name"
+            font_size: 30
+            size_hint_y: None
+            height: 50
+            color: [1, 1, 1, 1]
+
+        Label:
+            id: current_player_label
+            text: "Hello, Player!"
+            font_size: 24
+            size_hint_y: None
+            height: 60
+            color: [0.6, 1, 1, 1]
+
+        ToggleButton:
+            id: revealHide_button
+            text: "Tap to reveal"
+            font_size: 20
+            size_hint_y: 
+            background_color: [0.2, 0.6, 0.8, 1]
+            color: [1, 1, 1, 1]
+            on_press: root.revealHide(1 if self.state == 'down' else 0)
+
+        Button:
+            id: next_player_button
+            text: "Next Player"
+            font_size: 20
+            size_hint_y: None
+            height: 50
+            background_color: [0.1, 0.5, 0.7, 1]
+            color: [1, 1, 1, 1]
+            on_release: root.NextPlayerAction()
+
+        Widget:  # pushes everything above up
+            size_hint_y: 1
+
+        Button:
+            text: "Back to Main Menu"
+            font_size: 20
+            size_hint_y: None
+            height: 50
+            background_color: [0.3, 0.3, 0.4, 1]
+            on_release: root.go_to_main_menu()
+
+<TimerPage>
+    orientation: 'vertical'
+    padding: 40
+    spacing: 20
+    canvas.before:
+        Color:
+            rgba: [0.2, 0.15, 0.3, 1]
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Widget:  # Push timer text slightly toward center
+        size_hint_y: 0.3
+
+    Label:
+        id: timer_label
+        text: root.timer_text
+        font_size: 72
+        color: [1, 1, 1, 1]
+        size_hint_y: None
+        height: 90
+        top: root.top - 100
+        halign: 'center'
+        valign: 'center'
+        text_size: self.width, self.height
+
+    Widget:
+        size_hint_y: 0.1
+
+    BoxLayout:
+        size_hint_y: None
+        height: 60
+        spacing: 20
+
+        Button:
+            text: "Start"
+            font_size: 24
+            color: [1, 1, 1, 1]
+            background_normal: ''
+            background_color: [0.3, 0.2, 0.5, 1]
+            on_release: root.start_timer()
+
+        Button:
+            text: "Skip"
+            font_size: 24
+            color: [1, 1, 1, 1]
+            background_normal: ''
+            background_color: [0.4, 0.2, 0.6, 1]
+            on_release: root.skip_timer()
+
+<ImpostorReveal>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 30
+        spacing: 15
+        canvas.before:
+            Color:
+                rgba: [0.2, 0.15, 0.3, 1]
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "The Impostor Is..."
+            font_size: 40
+            color: [0.8, 0.9, 1, 1]
+            bold: True
+            size_hint_y: None
+            height: 60
+            halign: 'center'
+            valign: 'center'
+            text_size: self.width, self.height
+
+        Widget:  # Spacer above the impostor name
+
+        Label:
+            id: revealing_label
+            text: "..."
+            font_size: 60
+            color: [1, 0.2, 0.2, 1]
+            bold: True
+            size_hint_y: None
+            height: 100
+            halign: 'center'
+            valign: 'center'
+            text_size: self.width, self.height
+
+        Widget:  # Spacer below the impostor name
+
+        Button:
+            text: "Back to Main Menu"
+            font_size: 30
+            size_hint_y: None
+            height: 50
+            size_hint_x: 0.7
+            pos_hint: {'center_x': 0.5}
+            color: [0.9, 1, 0.9, 1]
+            background_normal: ''
+            background_down: ''
+            background_color: [0.4, 0.2, 0.6, 1]
+            canvas.before:
+                Color:
+                    rgba: [0.4, 0.2, 0.6, 1] if self.state == 'normal' else [0.5, 0.3, 0.7, 1]
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10,]
+            on_release: root.backToMenu()
+
+
+
+
+<GameOver>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 30
+        spacing: 30
+        canvas.before:
+            Color:
+                rgba: [0.1, 0.1, 0.2, 1]
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Game Over"
+            font_size: 200
+            top: root.height - 100
+            halign: 'center'
+            valign: 'center'
+            color: [1, 1, 1, 1]
+
+        Button:
+            text: "Back to Main Menu"
+            size_hint_y: None
+            height: 100
+            font_size: 70
+            background_color: [0.4, 0.1, 0.6, 1]
+            color: [1, 1, 1, 1]
+            on_release: root.go_to_main_menu()
