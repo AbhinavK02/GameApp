@@ -137,8 +137,13 @@ class MainMenu(Screen):
 
 
         # Game setup
+        impostorCount = 1
+        if(random.randint(1,100) == 2): # a 1/100 probability
+            impostorCount = playerCount-1 # only 1 is not impostor
+        if(random.randint(1,200) == 2): # a 1/200 probability
+            impostorCount = playerCount # everyone an impostor
         Sequence = random.sample(players, len(players))  # Randomly shuffle player names
-        impostor = random.choice(Sequence)  # Randomly select an impostor
+        impostor = random.sample(Sequence,impostorCount)  # Randomly select an impostor
         app = App.get_running_app()
         app.player_Sequence = Sequence  # Store the sequence in the app instance
         app.current_player_index = 1  # Initialize current player index
@@ -167,13 +172,14 @@ class GamePage(Screen):
         current_player = app.player_Sequence[currentIndex-1]
         logger.info(f"Current player: {current_player} at index {currentIndex}")
         impostor = app.impostor
-        if((button_state == 1) and (current_player == impostor)):
-            logger.info(f"Impostor!")
-            self.ids.revealHide_button.text = "Impostor"
-        elif((button_state == 1) and (current_player != impostor)):
-            word = app.Word # Get the word for the non impostor player
-            logger.info(f"Not an impostor, word: {word}")
-            self.ids.revealHide_button.text = word
+        if(button_state == 1):
+            if(current_player in impostor):
+                logger.info(f"Impostor!")
+                self.ids.revealHide_button.text = "Impostor"
+            elif(current_player not in impostor):
+                word = app.Word # Get the word for the non impostor player
+                logger.info(f"Not an impostor, word: {word}")
+                self.ids.revealHide_button.text = word
         else:
             logger.info("Hiding word")
             self.ids.revealHide_button.text = "Tap to reveal"
