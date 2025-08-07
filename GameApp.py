@@ -1,3 +1,4 @@
+from http.client import FOUND
 from time import sleep
 from turtle import position
 from webbrowser import BackgroundBrowser
@@ -30,6 +31,26 @@ from kivy.properties import ListProperty, NumericProperty, StringProperty
 
 labelDefaultColor = [0.8, 0.8, 0.8, 1]  # Default color for labels
 
+default_words = """
+Football
+Basketball
+Tennis
+Church
+Computer
+Pizza
+Car
+Book
+Movie
+Music
+Game
+Art
+Monopoly
+Science
+History
+Math
+Cooking
+"""
+
 # Logger setup
 logger = logging.getLogger(__name__)
 
@@ -48,7 +69,13 @@ class MainMenu(Screen):
         Initializes the themes and sets up the checkboxes.
         """
         logger.info("Entering Main Menu")
-        self.themes = self.findThemes()  # Get themes when entering the main menu
+        foundThemes = self.findThemes()  # Get themes when entering the main menu
+        logger.info(f"Found themes: {foundThemes}")
+        if "Default" in foundThemes:
+            logger.info("No Default theme found, creating it.")
+            self.createDefaut()
+
+        self.themes = foundThemes  # Set the spinner values to the found themes
 
     def findThemes(self):
         """
@@ -56,13 +83,33 @@ class MainMenu(Screen):
         Returns a list of theme names without the '.txt' extension.
         """
         themes = []
+        found = False
         themes_directory = os.path.join(os.getcwd(), 'GameApp', 'Themes')
+        if not os.path.exists(themes_directory):
+            logger.info("Themes directory does not exist. Creating it.")
+            os.makedirs(themes_directory)
+            self.createDefaut()  # Create default theme if directory is empty
         for filename in os.listdir(themes_directory):
             if filename.endswith('.txt'):
+                found = True
                 theme_name = filename[:-4]
                 themes.append(theme_name)
-        logger.info(f"Found themes: {themes}")
+        if not found:
+            logger.info("No themes found in the Themes directory.")
+            themes.append("Default")
+        else:
+            logger.info(f"Found themes: {themes}")
         return themes
+
+    def createDefaut(self):
+        """
+        Creates a default theme file if no themes are found.
+        """
+        default_theme_path = os.path.join(os.getcwd(), 'GameApp', 'Themes', 'Default.txt')
+        if not os.path.exists(default_theme_path):
+            with open(default_theme_path, 'w', encoding='utf-8') as file:
+                file.write(default_words)
+                logger.info("Default theme created with default words.")
 
     def clearText(self, text_input_widget):
         text_input_widget.text = ''\
