@@ -1,4 +1,3 @@
-from http.client import FOUND
 from time import sleep
 from turtle import position
 from webbrowser import BackgroundBrowser
@@ -31,26 +30,6 @@ from kivy.properties import ListProperty, NumericProperty, StringProperty
 
 labelDefaultColor = [0.8, 0.8, 0.8, 1]  # Default color for labels
 
-default_words = """
-Football
-Basketball
-Tennis
-Church
-Computer
-Pizza
-Car
-Book
-Movie
-Music
-Game
-Art
-Monopoly
-Science
-History
-Math
-Cooking
-"""
-
 # Logger setup
 logger = logging.getLogger(__name__)
 
@@ -69,13 +48,7 @@ class MainMenu(Screen):
         Initializes the themes and sets up the checkboxes.
         """
         logger.info("Entering Main Menu")
-        foundThemes = self.findThemes()  # Get themes when entering the main menu
-        logger.info(f"Found themes: {foundThemes}")
-        if "Default" in foundThemes:
-            logger.info("No Default theme found, creating it.")
-            self.createDefaut()
-
-        self.themes = foundThemes  # Set the spinner values to the found themes
+        self.themes = self.findThemes()  # Get themes when entering the main menu
 
     def findThemes(self):
         """
@@ -83,33 +56,28 @@ class MainMenu(Screen):
         Returns a list of theme names without the '.txt' extension.
         """
         themes = []
-        found = False
         themes_directory = os.path.join(os.getcwd(), 'GameApp', 'Themes')
-        if not os.path.exists(themes_directory):
-            logger.info("Themes directory does not exist. Creating it.")
-            os.makedirs(themes_directory)
-            self.createDefaut()  # Create default theme if directory is empty
         for filename in os.listdir(themes_directory):
             if filename.endswith('.txt'):
-                found = True
                 theme_name = filename[:-4]
                 themes.append(theme_name)
-        if not found:
-            logger.info("No themes found in the Themes directory.")
-            themes.append("Default")
-        else:
-            logger.info(f"Found themes: {themes}")
+        logger.info(f"Found themes: {themes}")
         return themes
 
-    def createDefaut(self):
-        """
-        Creates a default theme file if no themes are found.
-        """
-        default_theme_path = os.path.join(os.getcwd(), 'GameApp', 'Themes', 'Default.txt')
-        if not os.path.exists(default_theme_path):
-            with open(default_theme_path, 'w', encoding='utf-8') as file:
-                file.write(default_words)
-                logger.info("Default theme created with default words.")
+    def updateTextInputs(self):
+        numberPlayer = int(self.ids.player_count_spinner.text.strip())
+        player_inputs = [self.ids.player1_name, self.ids.player2_name, self.ids.player3_name,
+                         self.ids.player4_name, self.ids.player5_name, self.ids.player6_name]
+        
+        for i, input_widget in enumerate(player_inputs):
+            if i < numberPlayer:
+                input_widget.opacity = 1
+                input_widget.disabled = False
+                input_widget.size_hint_y = self.ids.player1_name.size_hint_y
+            else:
+                input_widget.opacity = 0
+                input_widget.disabled = True
+                input_widget.height = 0
 
     def clearText(self, text_input_widget):
         text_input_widget.text = ''\
@@ -137,7 +105,10 @@ class MainMenu(Screen):
 
     def start_game_action(self):
         # Access player names
-        players = [self.ids.player1_name.text, self.ids.player2_name.text, self.ids.player3_name.text]
+        player_names = [self.ids.player1_name.text.strip(), self.ids.player2_name.text.strip(), self.ids.player3_name.text.strip(),
+                         self.ids.player4_name.text.strip(), self.ids.player5_name.text.strip(), self.ids.player6_name.text.strip()]
+        playerCount = int(self.ids.player_count_spinner.text.strip())
+        players = player_names[0:playerCount]
         # Check if player names are unique
         if((players[0] == players[1]) or (players[0] == players[2]) or (players[1] == players[2])):
             logger.info("Error: Player names must be unique!")
@@ -146,11 +117,15 @@ class MainMenu(Screen):
         self.ids.player_name_label.color = labelDefaultColor # Reset label color to black
         
         # Check if player names are empty
-        if any(name.strip() == '' for name in players):
-            players = ["Player 1", "Player 2", "Player 3"]  # Default names if empty"]
-            logger.info("One or more player names are empty. Using default names.")
+        emptyEntry = False
+        for i, name in enumerate(players):
+            if name.strip() == "":
+                players[i] = f"Player {i + 1}"
+                emptyEntry = True
+        if(emptyEntry):
+            logger.info("Empty player names have been replaced with default names.")
         logger.info(f"Starting game with players: {players}")
-
+        print(players)
         # Check for themes
         theme = self.ids.theme_spinner.text.strip()  # Get the selected theme from the dropdown
         if theme == "Select Theme" or theme == "":

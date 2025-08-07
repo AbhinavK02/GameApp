@@ -23,7 +23,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GameApp.py" />
-    <Compile Include="GenerateTextFile.py" />
+    <Compile Include="main_menu_functions.py" />
     <Compile Include="Test.py" />
   </ItemGroup>
   <ItemGroup>

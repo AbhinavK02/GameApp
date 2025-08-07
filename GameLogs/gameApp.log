@@ -1,123 +1,56 @@
-2025-08-07 12:04:09,447 - __main__ - INFO - Starting GameApp
-2025-08-07 12:04:09,448 - __main__ - INFO - Building GameApp
-2025-08-07 12:04:09,474 - __main__ - INFO - Entering Main Menu
-2025-08-07 12:04:09,475 - __main__ - INFO - No themes found in the Themes directory.
-2025-08-07 12:04:11,845 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3']
-2025-08-07 12:04:11,845 - __main__ - INFO - No theme selected!
-2025-08-07 12:04:13,783 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3']
-2025-08-07 12:04:13,784 - __main__ - INFO - Selected theme: Default
-2025-08-07 12:04:13,784 - __main__ - INFO - Impostor selected: Player 1
-2025-08-07 12:04:13,785 - __main__ - INFO - Player sequence: ['Player 3', 'Player 2', 'Player 1']
-2025-08-07 12:04:13,785 - __main__ - INFO - Timer max value: 2
-2025-08-07 12:04:13,786 - __main__ - INFO - Error: The file 'words.txt' was not found. Please ensure it exists.
-2025-08-07 12:04:13,786 - __main__ - INFO - Words loaded from file.
-2025-08-07 12:04:57,518 - __main__ - INFO - Starting GameApp
-2025-08-07 12:04:57,519 - __main__ - INFO - Building GameApp
-2025-08-07 12:04:57,543 - __main__ - INFO - Entering Main Menu
-2025-08-07 12:04:57,543 - __main__ - INFO - No themes found in the Themes directory.
-2025-08-07 12:04:57,544 - __main__ - INFO - Found themes: ['Default']
-2025-08-07 12:05:46,415 - __main__ - INFO - Starting GameApp
-2025-08-07 12:05:46,416 - __main__ - INFO - Building GameApp
-2025-08-07 12:05:46,442 - __main__ - INFO - Entering Main Menu
-2025-08-07 12:05:46,442 - __main__ - INFO - No themes found in the Themes directory.
-2025-08-07 12:05:46,443 - __main__ - INFO - Found themes: ['Default']
-2025-08-07 12:06:08,484 - __main__ - INFO - Starting GameApp
-2025-08-07 12:06:08,485 - __main__ - INFO - Building GameApp
-2025-08-07 12:06:08,511 - __main__ - INFO - Entering Main Menu
-2025-08-07 12:06:08,512 - __main__ - INFO - No themes found in the Themes directory.
-2025-08-07 12:06:08,512 - __main__ - INFO - Found themes: ['Default']
-2025-08-07 12:06:08,512 - __main__ - INFO - No Default theme found, creating it.
-2025-08-07 12:06:08,514 - __main__ - INFO - Default theme created with default words.
-2025-08-07 12:06:37,438 - __main__ - INFO - Starting GameApp
-2025-08-07 12:06:37,440 - __main__ - INFO - Building GameApp
-2025-08-07 12:06:37,464 - __main__ - INFO - Entering Main Menu
-2025-08-07 12:06:37,464 - __main__ - INFO - Found themes: ['Default']
-2025-08-07 12:06:37,465 - __main__ - INFO - Found themes: ['Default']
-2025-08-07 12:06:37,465 - __main__ - INFO - No Default theme found, creating it.
-2025-08-07 12:06:39,495 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3']
-2025-08-07 12:06:39,496 - __main__ - INFO - Selected theme: Default
-2025-08-07 12:06:39,496 - __main__ - INFO - Impostor selected: Player 1
-2025-08-07 12:06:39,496 - __main__ - INFO - Player sequence: ['Player 2', 'Player 1', 'Player 3']
-2025-08-07 12:06:39,496 - __main__ - INFO - Timer max value: 2
-2025-08-07 12:06:39,497 - __main__ - INFO - Words loaded from file.
-2025-08-07 12:06:39,497 - __main__ - INFO - Assigned words: Church
-2025-08-07 12:06:40,736 - __main__ - INFO - Current player: Player 2 at index 1
-2025-08-07 12:06:40,737 - __main__ - INFO - Not an impostor, word: Church
-2025-08-07 12:06:41,133 - __main__ - INFO - Current player: Player 2 at index 1
-2025-08-07 12:06:41,134 - __main__ - INFO - Hiding word
-2025-08-07 12:06:42,272 - __main__ - INFO - Next player: Player 1 at index 2
-2025-08-07 12:06:42,614 - __main__ - INFO - Current player: Player 1 at index 2
-2025-08-07 12:06:42,615 - __main__ - INFO - Impostor!
-2025-08-07 12:06:43,157 - __main__ - INFO - Current player: Player 1 at index 2
-2025-08-07 12:06:43,158 - __main__ - INFO - Hiding word
-2025-08-07 12:06:43,894 - __main__ - INFO - Next player: Player 3 at index 3
-2025-08-07 12:06:44,188 - __main__ - INFO - Current player: Player 3 at index 3
-2025-08-07 12:06:44,189 - __main__ - INFO - Not an impostor, word: Church
-2025-08-07 12:06:45,174 - __main__ - INFO - Moving to timer screen
-2025-08-07 12:06:45,487 - __main__ - INFO - Entering TimerPage
-2025-08-07 12:08:24,937 - __main__ - INFO - Starting GameApp
-2025-08-07 12:08:24,939 - __main__ - INFO - Building GameApp
-2025-08-07 12:08:24,976 - __main__ - INFO - Entering Main Menu
-2025-08-07 12:08:24,976 - __main__ - INFO - Themes directory does not exist. Creating it.
-2025-08-07 12:08:24,978 - __main__ - INFO - Default theme created with default words.
-2025-08-07 12:08:24,980 - __main__ - INFO - Found themes: ['Default']
-2025-08-07 12:08:24,980 - __main__ - INFO - Found themes: ['Default']
-2025-08-07 12:08:24,981 - __main__ - INFO - No Default theme found, creating it.
-2025-08-07 12:08:30,734 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3']
-2025-08-07 12:08:30,735 - __main__ - INFO - No theme selected!
-2025-08-07 12:08:32,260 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3']
-2025-08-07 12:08:32,261 - __main__ - INFO - Selected theme: Default
-2025-08-07 12:08:32,262 - __main__ - INFO - Impostor selected: Player 3
-2025-08-07 12:08:32,262 - __main__ - INFO - Player sequence: ['Player 2', 'Player 1', 'Player 3']
-2025-08-07 12:08:32,263 - __main__ - INFO - Timer max value: 2
-2025-08-07 12:08:32,265 - __main__ - INFO - Words loaded from file.
-2025-08-07 12:08:32,265 - __main__ - INFO - Assigned words: Cooking
-2025-08-07 12:08:33,353 - __main__ - INFO - Current player: Player 2 at index 1
-2025-08-07 12:08:33,354 - __main__ - INFO - Not an impostor, word: Cooking
-2025-08-07 12:08:34,182 - __main__ - INFO - Current player: Player 2 at index 1
-2025-08-07 12:08:34,182 - __main__ - INFO - Hiding word
-2025-08-07 12:08:35,310 - __main__ - INFO - Next player: Player 1 at index 2
-2025-08-07 12:08:35,670 - __main__ - INFO - Current player: Player 1 at index 2
-2025-08-07 12:08:35,671 - __main__ - INFO - Not an impostor, word: Cooking
-2025-08-07 12:08:36,624 - __main__ - INFO - Next player: Player 3 at index 3
-2025-08-07 12:08:37,035 - __main__ - INFO - Current player: Player 3 at index 3
-2025-08-07 12:08:37,036 - __main__ - INFO - Impostor!
-2025-08-07 12:13:51,152 - __main__ - INFO - Starting GameApp
-2025-08-07 12:13:51,154 - __main__ - INFO - Building GameApp
-2025-08-07 12:13:51,182 - __main__ - INFO - Entering Main Menu
-2025-08-07 12:13:51,183 - __main__ - INFO - Found themes: ['animals', 'celebrities', 'Default', 'movies']
-2025-08-07 12:13:51,184 - __main__ - INFO - Found themes: ['animals', 'celebrities', 'Default', 'movies']
-2025-08-07 12:13:51,185 - __main__ - INFO - No Default theme found, creating it.
-2025-08-07 12:13:53,752 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3']
-2025-08-07 12:13:53,752 - __main__ - INFO - Selected theme: Default
-2025-08-07 12:13:53,753 - __main__ - INFO - Impostor selected: Player 3
-2025-08-07 12:13:53,754 - __main__ - INFO - Player sequence: ['Player 2', 'Player 3', 'Player 1']
-2025-08-07 12:13:53,755 - __main__ - INFO - Timer max value: 2
-2025-08-07 12:13:53,757 - __main__ - INFO - Words loaded from file.
-2025-08-07 12:13:53,758 - __main__ - INFO - Assigned words: Church
-2025-08-07 12:13:55,202 - __main__ - INFO - Next player: Player 3 at index 2
-2025-08-07 12:13:56,915 - __main__ - INFO - Current player: Player 3 at index 2
-2025-08-07 12:13:56,915 - __main__ - INFO - Impostor!
-2025-08-07 12:14:31,308 - __main__ - INFO - Starting GameApp
-2025-08-07 12:14:31,310 - __main__ - INFO - Building GameApp
-2025-08-07 12:14:31,335 - __main__ - INFO - Entering Main Menu
-2025-08-07 12:14:31,336 - __main__ - INFO - Found themes: ['Default']
-2025-08-07 12:14:31,337 - __main__ - INFO - Found themes: ['Default']
-2025-08-07 12:14:31,337 - __main__ - INFO - No Default theme found, creating it.
-2025-08-07 12:14:34,202 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3']
-2025-08-07 12:14:34,203 - __main__ - INFO - Selected theme: Default
-2025-08-07 12:14:34,204 - __main__ - INFO - Impostor selected: Player 2
-2025-08-07 12:14:34,205 - __main__ - INFO - Player sequence: ['Player 1', 'Player 2', 'Player 3']
-2025-08-07 12:14:34,205 - __main__ - INFO - Timer max value: 2
-2025-08-07 12:14:34,206 - __main__ - INFO - Words loaded from file.
-2025-08-07 12:14:34,206 - __main__ - INFO - Assigned words: Music
-2025-08-07 12:14:34,845 - __main__ - INFO - Current player: Player 1 at index 1
-2025-08-07 12:14:34,845 - __main__ - INFO - Not an impostor, word: Music
-2025-08-07 12:14:35,298 - __main__ - INFO - Current player: Player 1 at index 1
-2025-08-07 12:14:35,298 - __main__ - INFO - Hiding word
-2025-08-07 12:14:36,181 - __main__ - INFO - Next player: Player 2 at index 2
-2025-08-07 12:14:36,551 - __main__ - INFO - Current player: Player 2 at index 2
-2025-08-07 12:14:36,551 - __main__ - INFO - Impostor!
-2025-08-07 12:14:37,748 - __main__ - INFO - Next player: Player 3 at index 3
-2025-08-07 12:14:38,092 - __main__ - INFO - Current player: Player 3 at index 3
-2025-08-07 12:14:38,093 - __main__ - INFO - Not an impostor, word: Music
+2025-08-07 15:40:28,009 - __main__ - INFO - Starting GameApp
+2025-08-07 15:40:28,010 - __main__ - INFO - Building GameApp
+2025-08-07 15:40:28,046 - __main__ - INFO - Entering Main Menu
+2025-08-07 15:40:28,047 - __main__ - INFO - Found themes: ['animals', 'celebrities', 'Default', 'movies']
+2025-08-07 15:40:32,231 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3']
+2025-08-07 15:40:32,232 - __main__ - INFO - Selected theme: Default
+2025-08-07 15:40:32,232 - __main__ - INFO - Impostor selected: Player 3
+2025-08-07 15:40:32,233 - __main__ - INFO - Player sequence: ['Player 2', 'Player 3', 'Player 1']
+2025-08-07 15:40:32,233 - __main__ - INFO - Timer max value: 2
+2025-08-07 15:40:32,234 - __main__ - INFO - Words loaded from file.
+2025-08-07 15:40:32,234 - __main__ - INFO - Assigned words: Monopoly
+2025-08-07 15:42:14,572 - __main__ - INFO - Starting GameApp
+2025-08-07 15:42:14,573 - __main__ - INFO - Building GameApp
+2025-08-07 15:42:14,606 - __main__ - INFO - Entering Main Menu
+2025-08-07 15:42:14,607 - __main__ - INFO - Found themes: ['animals', 'celebrities', 'Default', 'movies']
+2025-08-07 15:42:16,672 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3']
+2025-08-07 15:42:16,673 - __main__ - INFO - No theme selected!
+2025-08-07 15:42:23,418 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3']
+2025-08-07 15:42:23,418 - __main__ - INFO - No theme selected!
+2025-08-07 15:43:00,846 - __main__ - INFO - Starting GameApp
+2025-08-07 15:43:00,847 - __main__ - INFO - Building GameApp
+2025-08-07 15:43:00,881 - __main__ - INFO - Entering Main Menu
+2025-08-07 15:43:00,882 - __main__ - INFO - Found themes: ['animals', 'celebrities', 'Default', 'movies']
+2025-08-07 15:43:03,350 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5']
+2025-08-07 15:43:03,350 - __main__ - INFO - No theme selected!
+2025-08-07 15:43:06,414 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5']
+2025-08-07 15:43:06,415 - __main__ - INFO - Selected theme: Default
+2025-08-07 15:43:06,415 - __main__ - INFO - Impostor selected: Player 2
+2025-08-07 15:43:06,416 - __main__ - INFO - Player sequence: ['Player 2', 'Player 4', 'Player 3', 'Player 5', 'Player 1']
+2025-08-07 15:43:06,416 - __main__ - INFO - Timer max value: 2
+2025-08-07 15:43:06,417 - __main__ - INFO - Words loaded from file.
+2025-08-07 15:43:06,417 - __main__ - INFO - Assigned words: Monopoly
+2025-08-07 15:43:08,327 - __main__ - INFO - Next player: Player 4 at index 2
+2025-08-07 15:43:09,240 - __main__ - INFO - Next player: Player 3 at index 3
+2025-08-07 15:43:10,204 - __main__ - INFO - Next player: Player 5 at index 4
+2025-08-07 15:43:11,149 - __main__ - INFO - Next player: Player 1 at index 5
+2025-08-07 15:43:11,784 - __main__ - INFO - Moving to timer screen
+2025-08-07 15:43:12,101 - __main__ - INFO - Entering TimerPage
+2025-08-07 15:43:13,108 - __main__ - INFO - Skipping timer, navigating to Impostor Reveal screen.
+2025-08-07 15:43:13,977 - __main__ - INFO - Returning to Main Menu from Impostor Reveal screen.
+2025-08-07 15:43:14,296 - __main__ - INFO - Entering Main Menu
+2025-08-07 15:43:14,297 - __main__ - INFO - Found themes: ['animals', 'celebrities', 'Default', 'movies']
+2025-08-07 15:43:17,896 - __main__ - INFO - Starting game with players: ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6']
+2025-08-07 15:43:17,897 - __main__ - INFO - Selected theme: Default
+2025-08-07 15:43:17,897 - __main__ - INFO - Impostor selected: Player 3
+2025-08-07 15:43:17,897 - __main__ - INFO - Player sequence: ['Player 3', 'Player 4', 'Player 6', 'Player 2', 'Player 1', 'Player 5']
+2025-08-07 15:43:17,898 - __main__ - INFO - Timer max value: 2
+2025-08-07 15:43:17,898 - __main__ - INFO - Words loaded from file.
+2025-08-07 15:43:17,899 - __main__ - INFO - Assigned words: Basketball
+2025-08-07 15:43:19,180 - __main__ - INFO - Next player: Player 4 at index 2
+2025-08-07 15:43:20,065 - __main__ - INFO - Next player: Player 6 at index 3
+2025-08-07 15:43:20,916 - __main__ - INFO - Next player: Player 2 at index 4
+2025-08-07 15:43:21,803 - __main__ - INFO - Next player: Player 1 at index 5
+2025-08-07 15:43:22,636 - __main__ - INFO - Next player: Player 5 at index 6
+2025-08-07 15:43:23,226 - __main__ - INFO - Moving to timer screen
+2025-08-07 15:43:23,551 - __main__ - INFO - Entering TimerPage
